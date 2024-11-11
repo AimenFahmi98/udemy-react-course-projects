@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+body {
+  margin: 0;
+  /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;*/
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #555;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+
+  margin: 0 auto;
+  margin-top: 10vh;
+  width: 80%;
+}
+
+.friend-management-container {
+  width: 550px;
+}
+
+.friends-list-container {
+  border-radius: 15px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* shadow effect */
+  transition: box-shadow 0.3s ease;
+  height: 305px;
+  border: 2 solid green;
+  overflow: auto; /* Enables scrolling when content overflows */
+  box-sizing: border-box; /* Ensures padding and border are included in the height calculation */
+  margin-bottom: 30px;
+}
+
+/* The main container of each "friend" */
+.friend-container {
+  border-radius: 5px;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr); /* Two rows of equal height */
+  grid-template-columns: repeat(4, 1fr); /* four columns of equal width */
+  row-gap: 5px;
+  text-align: center; /* Centers text content */
+  justify-items: center; /* Centers all items horizontally within grid cells */
+  align-items: center; /* Centers all items vertically within grid cells */
+}
+
+.friend-is-selected {
+  background-color: #f4f1de;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* shadow effect */
+  transition: box-shadow 0.3s ease;
+  border-radius: 15px;
+}
+
+/* Ensure images are styled as circular */
+img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover; /* Ensure image fits the circular container */
+}
+
+/* Image that spans two rows */
+.friend-image {
+  grid-row: span 2; /* Takes up both rows */
+  grid-column: 1; /* Positioned in the first column */
+}
+
+/* Friend's name in the first row, second column */
+.friend-name {
+  margin-top: 8%;
+  grid-row: 1; /* First row */
+  grid-column: 2/4; /* Second column */
+  font-weight: bold;
+  font-size: 22px;
+  text-align: left; /* Align text to the left */
+  justify-self: start; /* Align to the left within the grid cell */
+}
+
+/* Friend's balance in the second row, second column */
+.friend-balance {
+  margin-bottom: 7%;
+  grid-row: 2; /* Second row */
+  grid-column: 2/4; /* Second column */
+  text-align: left; /* Align text to the left */
+  justify-self: start; /* Align to the left within the grid cell */
+  font-size: 17px;
+  font-weight: 500;
+  color: rgba(85, 85, 85, 0.65);
+}
+
+.friend-balance-red {
+  color: rgba(213, 9, 50, 0.65);
+}
+
+.friend-balance-green {
+  color: rgba(34, 139, 34, 0.65);
+}
+
+/* Button that spans both rows in the third column */
+.friend-selection-button {
+  grid-row: span 2; /* Spans both rows */
+  grid-column: 4; /* Positioned in the third column */
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  padding: 15px 30px;
+  font-weight: bold;
+  background-color: #df7a5f;
+}
+
+button:hover {
+  background-color: rgba(223, 123, 95, 0.9);
+}
+
+/* FRIEND ADDER */
+
+.friend-adder-container {
+  background-color: #f4f1de;
+  border-radius: 15px;
+  padding: 20px 40px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* shadow effect */
+  transition: box-shadow 0.3s ease;
+  margin-bottom: 30px;
+
+  display: grid;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: auto 1fr 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.friend-adder-container .form-text {
+  grid-column: 2;
+}
+
+.friend-adder-container .form-emoji {
+  grid-column: 1;
+}
+
+.friend-adder-container .form-input {
+  grid-column: 3/5;
+}
+
+.friend-adder-button-add-friend {
+  grid-row: 3;
+  grid-column: 3/5;
+}
+
+.friend-adder-button-container {
+  padding-right: 10px;
+  text-align: right;
+}
+
+/* BILL SPLITER */
+
+.bill-spliter-container {
+  background-color: #f4f1de;
+  border-radius: 15px;
+  padding: 30px 40px;
+  height: 450px;
+  width: 40%;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* shadow effect */
+  transition: box-shadow 0.3s ease;
+
+  display: grid;
+  grid-template-rows: repeat(5, auto);
+  grid-template-columns: auto 1fr 1fr auto;
+  column-gap: 15px;
+  row-gap: 20px;
+  align-items: center;
+}
+
+.bill-spliter-container .form-text {
+  grid-column: 2/4;
+}
+
+.bill-spliter-title {
+  margin: 0;
+  text-transform: uppercase;
+  grid-row: 1;
+  grid-column: span 4;
+}
+
+.bill-spliter-button {
+  grid-column: 4;
+  border: 1px solid rgba(223, 123, 95, 0.4);
+  border-radius: 10px;
+  width: 100%;
+  height: 50px;
+  font-size: 18px;
+  text-align: center;
+  padding: 15px 0;
+}
+
+#bill-spliter-select {
+  height: 50px;
+}
+
+/* FORMS */
+
+.form-emoji {
+  font-size: 30px;
+  width: 30px;
+}
+
+.form-text {
+  font-size: 20px;
+}
+
+.form-input {
+  /*border: 1px solid rgba(223, 123, 95, 0.4);*/
+  border: none;
+  border-radius: 5px;
+  height: 35px;
+  font-size: 18px;
+  text-align: center;
+  padding: 5px 20px;
+  font-size: 19px;
+  color: rgba(85, 85, 85, 0.95);
+  font-weight: 500;
+
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  align-items: center;
+}
+
+.form-input-locked {
+  background-color: rgba(85, 85, 85, 0.097);
+  cursor: not-allowed;
+}
